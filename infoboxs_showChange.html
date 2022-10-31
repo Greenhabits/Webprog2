@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>infobox show[one/Multiple]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+<body>
+
+
+<!-- MAP[START] -->
+<h1>Click on the pin. (Select 1 to 3 as the second argument of the function. The result changes.)</h1>
+<div id="myMap" style="width:100vw;height:100vh;"></div>
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AjQpprwglsUxJKmVtBXY29swayrAX_pHuKAnFg6ppI1R-dpqSHERUwfEX-dVGu_0' async defer></script>
+<script src="../js/BmapQuery.js"></script>
+<script>
+    //init
+    function GetMap() {
+        //------------------------------------------------------------------------
+        //1. Instance
+        //------------------------------------------------------------------------
+        const map = new Bmap("#myMap");
+        //------------------------------------------------------------------------
+        //2. Display Map
+        //------------------------------------------------------------------------
+        map.startMap(35.039500, 135.728500, "load", 10);
+
+        //----------------------------------------------------
+        //3. Infobox
+        //   options = new Array();
+        //   options[index] = { lat, lon, width, height, title, pinColor, description, show };
+        //----------------------------------------------------
+        const options = [];
+        options[0]={
+            "lat":35.6997476,
+            "lon":139.5737018,
+            "title":"INOKASHIRA PARK",
+            "pinColor":"#228b22",
+            "height":300,
+            "width":320,
+            "description": 'Benzaiten<br><img src="../img/IMG_1488.jpg" width="300">',
+            "show":false
+        };
+        options[1]={
+            "lat":35.70082398,
+            "lon":139.57312715,
+            "title":"Ghibli Museum in Mitaka Forest",
+            "pinColor":"#ff4500",
+            "height":300,
+            "width":320,
+            "description": 'Ghibli<br><img src="../img/ghibli01.jpg" width="300">',
+            "show":false
+        };
+        options[2]={
+            "lat":35.70857588,
+            "lon":139.66564212,
+            "title":"Broadway in Nakano",
+            "pinColor":"#4169e1",
+            "height":300,
+            "width":320,
+            "description": 'Mandarake<br><img src="../img/1902977_org.jpg" width="300">',
+            "show":false
+        };
+        options[3]={
+            "lat":36.34069513,
+            "lon":138.63603646,
+            "title":"Karuizawa Prince Shopping Plaza",
+            "pinColor":"#ffc0cb",
+            "height":300,
+            "width":320,
+            "description": 'Outlet<br><img src="../img/2c0b2ca495bfd53340d0138dbb220162ca4533d6.jpg" width="300">',
+            "show":false
+        };
+        options[4]={
+            "lat":35.63767702,
+            "lon":139.79285006,
+            "title":"Ariake Garden",
+            "pinColor":"#ffa500",
+            "height":300,
+            "width":320,
+            "description": 'Izumi Tenku no Yu Ariake Garden<br><img src="../img/main.jpg" width="300">',
+            "show":false
+        };
+        options[5]={
+            "lat":34.44866712,
+            "lon":136.20661529,
+            "title":"Mt.Miuneyama",
+            "pinColor":"#20b2aa",
+            "height":300,
+            "width":320,
+            "description": 'Mt.Mitsumine<br><img src="../img/miuneyama-36.jpg" width="300">',
+            "show":false
+        };
+        //----------------------------------------------------
+        //4. Switch infoboxs
+        //   infoboxLayers(options, true); //true=one, false=Multiple
+        //----------------------------------------------------
+        map.infoboxLayers(options,true);
+
+    }
+</script>
+</body>
+</html>
